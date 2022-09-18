@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Notification, ipcMain } = require('electron');
+const { app, BrowserWindow, Notification, ipcMain, Menu } = require('electron');
 const path = require('path')
 
 // 热加载
@@ -9,6 +9,9 @@ require('electron-reload')(__dirname, {
 
 // 创建窗口
 const createWindow = () => {
+  // null值取消顶部菜单栏
+  Menu.setApplicationMenu(null);
+
   const mainWindow = new BrowserWindow({
     width: 300,
     height: 300,
